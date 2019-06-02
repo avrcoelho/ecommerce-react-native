@@ -1,22 +1,34 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import PropTypes from 'prop-types';
 
-const TabIcon = ({ tintColor }) => <Icon name="shopping-cart" size={20} color={tintColor} />;
+import Main from './Main';
 
-const Cart = () => (
-  <View>
-    <Text>Cart</Text>
-  </View>
-);
+const TabIcon = ({ tintColor }) => <Icon name="shopping-cart" size={20} color={tintColor} />;
 
 TabIcon.propTypes = {
   tintColor: PropTypes.string.isRequired,
 };
 
-Cart.navigationOptions = {
-  tabBarIcon: TabIcon,
-};
-
-export default Cart;
+export default createStackNavigator(
+  {
+    Main: {
+      screen: Main,
+      navigationOptions: {
+        title: 'Carrinho de compras',
+        headerTitleStyle: {
+          color: '#fd8d8d',
+          textAlign: 'center',
+          flexGrow: 1,
+          alignSelf: 'center',
+        },
+      },
+    },
+  },
+  {
+    navigationOptions: {
+      tabBarIcon: TabIcon,
+    },
+  },
+);

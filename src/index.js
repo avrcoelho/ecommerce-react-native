@@ -2,15 +2,17 @@ import '~/config/ReactotronConfig';
 
 import React from 'react';
 import { SafeAreaView } from 'react-native';
-import Routes from '~/routes';
+import { Provider } from 'react-redux';
 
-import Header from '~/components/Header';
+import Routes from '~/routes';
+import store from '~/store';
 
 const App = () => (
-  <SafeAreaView style={{ flex: 1, backgroundColor: '#e6e6e6' }}>
-    <Header />
-    <Routes />
-  </SafeAreaView>
+  <Provider store={store}>
+    <SafeAreaView style={{ flex: 1 }}>
+      <Routes />
+    </SafeAreaView>
+  </Provider>
 );
 
 export default App;

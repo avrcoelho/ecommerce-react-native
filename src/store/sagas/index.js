@@ -1,13 +1,14 @@
 import { all, takeLatest } from 'redux-saga/effects';
 
-// import { PodcastsTypes } from '~/store/ducks/podcasts';
-// import { PlayerTypes } from '~/store/ducks/player';
+import { ProductTypes } from '~/store/ducks/products';
+import { CategoryTypes } from '~/store/ducks/categories';
 
-// import { load } from './podcasts';
-// import {
-//   init, setPodcast, play, pause, prev, next, reset,
-// } from './player';
+import { getProducts } from './products';
+import { getCategories } from './categories';
 
 export default function* rootSaga() {
-  return yield all([]);
+  return yield all([
+    takeLatest(CategoryTypes.SET_CATEGORY_REQUEST, getCategories),
+    takeLatest(ProductTypes.SET_PRODUCT_REQUEST, getProducts),
+  ]);
 }

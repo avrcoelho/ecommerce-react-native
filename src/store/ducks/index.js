@@ -1,7 +1,11 @@
-    
 import { combineReducers } from 'redux';
 
-// import { reducer as podcasts } from './podcasts';
-// import { reducer as player } from './player';
+import { reducer as products } from './products';
+import { reducer as categories } from './categories';
+import { reducer as cart } from './cart';
 
-export default combineReducers({[]});
+export default combineReducers({
+  products,
+  categories,
+  cart,
+});

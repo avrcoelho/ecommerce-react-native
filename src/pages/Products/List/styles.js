@@ -3,6 +3,10 @@ import { StyleSheet } from 'react-native';
 // import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 const styles = StyleSheet.create({
+  container: {
+    paddingBottom: 60,
+  },
+
   listCategories: {
     height: 54,
     backgroundColor: '#fd8d8d',
@@ -24,8 +28,23 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 
+  buttonTextActive: {
+    flex: 1,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff',
+    borderBottomColor: '#fff',
+    borderBottomWidth: 5,
+  },
+
   listProducts: {
-    // flex: 1,
+    backgroundColor: '#e6e6e6',
+    alignSelf: 'stretch',
+  },
+
+  buttonPress: {
+    flexDirection: 'column',
+    alignItems: 'center',
   },
 
   listProductsItem: {
@@ -63,6 +82,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#4bb96f',
     alignSelf: 'stretch',
+  },
+
+  loading: {
+    color: '#000',
+    marginTop: 20,
   },
 });
 

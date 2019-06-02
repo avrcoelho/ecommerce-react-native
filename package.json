@@ -10,6 +10,7 @@
     "axios": "^0.18.0",
     "prop-types": "^15.7.2",
     "react": "16.8.3",
+    "react-intl-native": "^2.1.2",
     "react-native": "0.59.8",
     "react-native-gesture-handler": "^1.2.2",
     "react-native-iphone-x-helper": "^1.2.1",
