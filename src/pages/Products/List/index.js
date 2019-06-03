@@ -80,9 +80,11 @@ class Products extends Component {
   }
 
   render() {
-    const { categories, products, actualCategory } = this.props;
+    const { categories, products, activeCategory } = this.props;
 
     const { loading, refresh } = this.state;
+
+    console.log(activeCategory)
 
     return (
       <View style={styles.container}>
@@ -95,7 +97,7 @@ class Products extends Component {
           // renomei o item para o que quiser
           renderItem={({ item: category }) => (
             <TouchableOpacity
-              style={category.id === actualCategory
+              style={category.id === activeCategory
                 ? styles.buttonActive
                 : styles.button}
               onPress={() => this.handleGetProducts(category.id)}
@@ -119,7 +121,7 @@ class Products extends Component {
               // recebe cada podcast e retorna o id como string
               keyExtractor={product => String(product.id)}
                // faz o refresh ao puxar a lista para baixo
-              onRefresh={() => this.handleRefreshProducts(actualCategory)}
+              onRefresh={() => this.handleRefreshProducts(activeCategory)}
               refreshing={refresh}
               // renerica cada item do podcast
               // renomei o item para o que quiser
@@ -149,7 +151,7 @@ const formatPrice = (products) => {
 }
 
 const mapStateToProps = state => ({
-  actualCategory: state.products.category,
+  activeCategory: state.categories.activeCategory,
   categories: state.categories.categories,
   products: formatPrice(state.products.products),
 });
