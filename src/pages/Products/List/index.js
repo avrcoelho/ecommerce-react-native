@@ -61,13 +61,13 @@ class Products extends Component {
     this.setState({ loading: false, refresh: false });
   }
 
-  handleGetProducts = async (category) => {
+  handleGetProducts = (category) => {
     this.setState({ loading: true });
 
     this.getProducts(category);
   }
 
-  handleRefreshProducts = async (category) => {
+  handleRefreshProducts = (category) => {
     this.setState({ refresh: true });
 
     this.getProducts(category);
@@ -81,7 +81,7 @@ class Products extends Component {
 
   render() {
     const { categories, products, actualCategory } = this.props;
-    
+
     const { loading, refresh } = this.state;
 
     return (
@@ -95,12 +95,12 @@ class Products extends Component {
           // renomei o item para o que quiser
           renderItem={({ item: category }) => (
             <TouchableOpacity
-              style={styles.button}
+              style={category.id === actualCategory
+                ? styles.buttonActive
+                : styles.button}
               onPress={() => this.handleGetProducts(category.id)}
             >
-              <Text style={category.id === actualCategory
-                ? styles.buttonTextActive
-                : styles.buttonText}
+              <Text style={styles.buttonText}
               >
                 {category.title}
               </Text>
@@ -149,9 +149,9 @@ const formatPrice = (products) => {
 }
 
 const mapStateToProps = state => ({
+  actualCategory: state.products.category,
   categories: state.categories.categories,
   products: formatPrice(state.products.products),
-  actualCategory: state.categories.actual,
 });
 
 const mapDispatchToProps = dispatch => (

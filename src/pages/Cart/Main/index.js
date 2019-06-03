@@ -52,9 +52,7 @@ class Main extends Component {
   changeAmountProduct = (amount, id) => {
     const { changeAmount } = this.props;
 
-    if (amount !== '') {
-      changeAmount(parseInt(amount, 10), id);
-    }
+    changeAmount(parseInt(amount === '' ? 0 : amount, 10), id);
   };
 
   render() {
@@ -78,7 +76,7 @@ class Main extends Component {
               <View style={styles.options}>
                 <TextInput
                   style={styles.producAmount}
-                  value={String(product.amount)}
+                  value={String(product.amount !== 0 ? product.amount : '')}
                   keyboardType="numeric"
                   onChangeText={text => this.changeAmountProduct(text, product.id)}
                 />

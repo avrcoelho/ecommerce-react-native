@@ -22,6 +22,8 @@ export const reducer = createReducer(INITIAL_STATE, {
     if (!itemFind) {
       return state.merge({ itemsCart: [...state.itemsCart, { ...action.product, amount: 1 }] });
     }
+
+    return state;
   },
   [Types.REMOVE_CART]: (state, action) => state.merge({ itemsCart: state.itemsCart.filter(item => item.id !== action.id) }),
   [Types.CHANGE_AMOUNT]: (state, action) => state.merge({

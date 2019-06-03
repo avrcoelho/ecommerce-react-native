@@ -21,20 +21,23 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
 
+  buttonActive: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 100,
+    height: 54,
+    paddingHorizontal: 10,
+    borderBottomColor: '#fff',
+    borderBottomWidth: 10,
+  },
+
   buttonText: {
     flex: 1,
     fontSize: 16,
     fontWeight: 'bold',
     color: '#fff',
-  },
-
-  buttonTextActive: {
-    flex: 1,
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#fff',
-    borderBottomColor: '#fff',
-    borderBottomWidth: 5,
+    textAlign: 'center',
   },
 
   listProducts: {

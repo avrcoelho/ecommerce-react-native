@@ -17,5 +17,5 @@ export const INITIAL_STATE = Immutable({
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.SET_PRODUCT_REQUEST]: (state, action) => state.merge({ category: action.category, loading: true }),
-  [Types.SET_PRODUCT_SUCCESS]: (state, action) => state.merge({ category: null, products: action.data, loading: false }),
+  [Types.SET_PRODUCT_SUCCESS]: (state, action) => state.merge({ products: action.data, loading: false }),
 });
