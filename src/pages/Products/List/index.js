@@ -81,7 +81,9 @@ class Products extends Component {
 
   render() {
     const { categories, products, actualCategory } = this.props;
+    
     const { loading, refresh } = this.state;
+
     return (
       <View style={styles.container}>
         <FlatList
@@ -95,9 +97,11 @@ class Products extends Component {
             <TouchableOpacity
               style={styles.button}
               onPress={() => this.handleGetProducts(category.id)}
-              underlayColor="gray"
             >
-              <Text style={styles.buttonText}>
+              <Text style={category.id === actualCategory
+                ? styles.buttonTextActive
+                : styles.buttonText}
+              >
                 {category.title}
               </Text>
             </TouchableOpacity>
@@ -147,7 +151,7 @@ const formatPrice = (products) => {
 const mapStateToProps = state => ({
   categories: state.categories.categories,
   products: formatPrice(state.products.products),
-  actualCategory: state.products.category,
+  actualCategory: state.categories.actual,
 });
 
 const mapDispatchToProps = dispatch => (

@@ -5,6 +5,7 @@ const { Types, Creators } = createActions({
   // passa o nome das actions
   setCategoryRequest: null,
   setCategorySuccess: ['data'],
+  setActualCategory: ['id'],
 });
 
 export const CategoryTypes = Types;
@@ -12,8 +13,10 @@ export default Creators;
 
 export const INITIAL_STATE = Immutable({
   categories: [],
+  actual: null,
 });
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.SET_CATEGORY_SUCCESS]: (state, action) => state.merge({ categories: action.data }),
+  [Types.SET_ACTUAL_CATEGORY]: (state, action) => state.merge({ actual: action.id }),
 });
