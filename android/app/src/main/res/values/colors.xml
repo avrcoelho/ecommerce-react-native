@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<resources>
+  <!-- cor de fundo da splashscreen -->
+  <color name="primary">#fd8d8d</color>
+</resources>
