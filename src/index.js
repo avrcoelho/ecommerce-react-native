@@ -3,13 +3,11 @@ import '~/config/ReactotronConfig';
 import React, { Component } from 'react';
 import { SafeAreaView } from 'react-native';
 import { Provider } from 'react-redux';
-import codePush from 'react-native-code-push';
+import CodePush from 'react-native-code-push';
 import OneSignal from 'react-native-onesignal';
 
 import Routes from '~/routes';
 import store from '~/store';
-
-const codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_RESUME };
 
 class App extends Component {
   componentDidMount() {
@@ -46,4 +44,6 @@ class App extends Component {
   }
 }
 
-export default codePush(codePushOptions)(App);
+export default CodePush({
+  checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
+})(App);
